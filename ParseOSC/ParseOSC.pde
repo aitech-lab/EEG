@@ -19,6 +19,7 @@ Slider2D gyro;
 int gyro_w = 24;
 
 void setup() {
+  
   size(1030,410);
   cp5 = new ControlP5(this);
   
