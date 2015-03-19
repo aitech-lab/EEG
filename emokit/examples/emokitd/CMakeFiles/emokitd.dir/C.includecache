@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/peko/Projects/Epoc/emokit/examples/emokitd/emokitd.c
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+errno.h
+-
+fcntl.h
+-
+unistd.h
+-
+syslog.h
+-
+signal.h
+-
+pthread.h
+-
+sys/resource.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+emokit/emokit.h
+/home/peko/Projects/Epoc/emokit/examples/emokitd/emokit/emokit.h
+emokitd.h
+/home/peko/Projects/Epoc/emokit/examples/emokitd/emokitd.h
+
+/home/peko/Projects/Epoc/emokit/examples/emokitd/emokitd.h
+sys/stat.h
+/home/peko/Projects/Epoc/emokit/examples/emokitd/sys/stat.h
+
+include/emokit/emokit.h
+stdint.h
+-
+

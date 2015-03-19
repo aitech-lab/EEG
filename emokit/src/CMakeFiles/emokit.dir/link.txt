@@ -1,0 +1,2 @@
+/usr/bin/ar cr ../lib/libemokit.a  CMakeFiles/emokit.dir/emokit.c.o
+/usr/bin/ranlib ../lib/libemokit.a

@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/peko/Projects/Epoc/emokit/examples/emokit_osc/emokit_osc.cpp
+cstdio
+-
+cstring
+-
+cstdlib
+-
+csignal
+-
+iostream
+-
+oscpack/osc/OscOutboundPacketStream.h
+/home/peko/Projects/Epoc/emokit/examples/emokit_osc/oscpack/osc/OscOutboundPacketStream.h
+oscpack/ip/UdpSocket.h
+/home/peko/Projects/Epoc/emokit/examples/emokit_osc/oscpack/ip/UdpSocket.h
+emokit/emokit.h
+/home/peko/Projects/Epoc/emokit/examples/emokit_osc/emokit/emokit.h
+
+include/emokit/emokit.h
+stdint.h
+-
+

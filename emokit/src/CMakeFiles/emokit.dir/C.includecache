@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/peko/Projects/Epoc/emokit/src/emokit.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+emokit/emokit.h
+/home/peko/Projects/Epoc/emokit/src/emokit/emokit.h
+hidapi/hidapi.h
+/home/peko/Projects/Epoc/emokit/src/hidapi/hidapi.h
+mcrypt.h
+/home/peko/Projects/Epoc/emokit/src/mcrypt.h
+
+/usr/local/include/hidapi/hidapi.h
+wchar.h
+-
+
+include/emokit/emokit.h
+stdint.h
+-
+

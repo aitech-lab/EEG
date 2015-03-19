@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/emokit_osc.dir/emokit_osc.cpp.o  -o ../../bin/emokit_osc -rdynamic -loscpack ../../lib/libemokit.a -lmcrypt /usr/local/lib/libhidapi-hidraw.so -Wl,-rpath,/usr/local/lib 
