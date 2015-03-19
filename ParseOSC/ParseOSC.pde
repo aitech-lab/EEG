@@ -110,5 +110,4 @@ void oscEvent(OscMessage msg) {
     gyro.setArrayValue(new float[] {gyro_w-msg.get(0).intValue(), gyro_w+msg.get(1).intValue()});
   }
   
-  
 }
