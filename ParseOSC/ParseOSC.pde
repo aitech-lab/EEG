@@ -17,6 +17,7 @@ Chart chart;
 Slider btt;
 Slider2D gyro;
 int gyro_w = 24;
+float data_w = 1.0;
 
 void setup() {
   
@@ -24,12 +25,12 @@ void setup() {
   cp5 = new ControlP5(this);
   
   frameRate(25);
-  /* start oscP5, listening for incoming messages at port 12000 */
+
   oscP5 = new OscP5(this,9997);
   chart = cp5.addChart("data")
                .setPosition(10, 10)
                .setSize(750, 380)
-               .setRange(-0.2, 0.2)
+               .setRange(-data_w, data_w)
                .setView(Chart.LINE) // use Chart.LINE, Chart.PIE, Chart.AREA, Chart.BAR_CENTERED
                ;
                
@@ -41,8 +42,8 @@ void setup() {
     chart.setData(p, data);
     
     cp5.addSlider(p+"-V")
-     .setPosition(770,10+i*20)
-     .setRange(-1, 1); 
+     .setPosition(770, 10+i*20)
+     .setRange(-data_w, data_w); 
 
     cp5.addSlider(p+"-Q")
      .setPosition(900,10+(i++)*20)
