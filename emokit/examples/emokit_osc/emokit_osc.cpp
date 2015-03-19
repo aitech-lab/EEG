@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
 				  << frame.cq.O1 << frame.cq.FC5 << osc::EndMessage;
 
 				p << osc::BeginMessage( "/gyro" )
-				  << frame.gyroX << frame.gyroY << osc::EndMessage;
+				  << (int)frame.gyroX << (int)frame.gyroY << osc::EndMessage;
 
 				if (frame.counter == 128) {
 					p << osc::BeginMessage( "/battery" ) 
