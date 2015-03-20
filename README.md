@@ -1,5 +1,7 @@
 # Ailove-EEG
 
+![screenshoot](https://raw.githubusercontent.com/ailove-lab/Ailove-EEG/master/emotivepoc.png)
+
 EEG experiments
 
 ![screenshoot](https://raw.githubusercontent.com/ailove-lab/Ailove-EEG/master/ss01.png)
