@@ -39,6 +39,7 @@ void setup() {
     chart.addDataSet(p);
     chart.setColors(p, randomColor(),randomColor());
     float[] data = new float[200];
+    if(data == null) continue;
     chart.setData(p, data);
     
     cp5.addSlider(p+"-V")

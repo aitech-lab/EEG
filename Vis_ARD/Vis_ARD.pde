@@ -6,6 +6,12 @@
  
 import oscP5.*;
 import netP5.*;
+import java.util.Arrays;
+import java.util.Collections;
+
+import processing.serial.*;
+
+Serial port;
 
 OscP5 oscP5;
 
@@ -33,50 +39,62 @@ int x = 0;
 float atr1[] = new float[14];
 float atr2[] = new float[14];
 
+int clr = 0;
+int stp = 0;
+
+
+
 ArrayList<float[]> data = new ArrayList< float[] >();
 
 void setup() {
   
-  size(720,800);
-  
-  frameRate(30);
+  size(200,200, P3D);
+  port = new Serial(this, "/dev/ttyACM0", 9600);  
+  frameRate(1);
 
-  oscP5 =new OscP5(this,"239.0.0.1",7777);
+  oscP5 = new OscP5(this,"239.0.0.1",7777);
   background(0);
 }
 
 void draw() {
   
-    noStroke();
-    fill(0, 4);
-    rect(0,0,width, height);
+  noStroke();
   
-      
-
+  fill(0, 10);
+  rect(0,0,width, height);
+  
+  pushMatrix();
+  
   while(data !=null && data.size()>0) {
+    
+    // println(stp,  data.size());
+    
     float d[] = data.remove(0);
-    int i=0;
-    if(d == null) continue;
-    for(float f: d) { 
-      atr1[i]+= (f-atr1[i])/20.0;
-      atr2[i]+= (f-atr2[i])/10.0;
-      
-      stroke(p0[i%p0.length],230);  
-      line(
-        x, height/2.0+atr2[i]*500,
-        x, height/2.0+atr1[i]*500);
-      
-      stroke(p0[i%p0.length],100);  
-      point(x,height/2.0+f*500);   
-      i++;
+    
+    if(d==null) continue;
+    
+    float mind = 0;
+    float maxd = 0;
+    for(int i=0; i<d.length; i++) {
+      float f = d[i];  
+      atr1[i]+= (f-atr1[i])/ 50.0;
+      atr2[i]+= (f-atr2[i])/100.0;
+      if(f<mind) mind=f;
+      if(f>maxd) maxd=f;
     }
-    x++;
-    x%=width;
+    for(int i=0; i<d.length; i++) { 
+      float dd = (d[i] - mind)/(maxd-mind)*64;
+      port.write((int)dd);
+    }
+    data.clear();
+     
   }
+  popMatrix();
   
 }
 
 void oscEvent(OscMessage msg) {
+
   if(msg.checkAddrPattern("/data")) {
     int i = 0;
     float d[] = new float[14];
