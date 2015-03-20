@@ -16,16 +16,7 @@ int p0[] =
 ,0xFFC7F464
 ,0xFF4ECDC4
 ,0xFF556270
-,0xFFECD078
-,0xFFD95B43
-,0xFFC02942
-,0xFF542437
-,0xFF53777A
-,0xFF00A0B0
-,0xFF6A4A3C
-,0xFFCC333F
-,0xFFEB6841
-,0xFFEDC951};
+};
 
 BufferedReader reader;
 String line;
@@ -37,12 +28,11 @@ float atr2[] = new float[14];
 
 void setup() {
   
-  size(1024,768);
+  size(320,240);
   
   frameRate(60);
 
-  oscP5 = new OscP5(this,9997);
-  remote = new NetAddress("127.0.0.1",9997);             
+  oscP5 = new OscP5(this,"239.0.0.1",7777);
   reader = createReader("data/eeg.txt");
   background(0);
 }
@@ -73,21 +63,18 @@ void draw() {
       
       float f = float(s);
       
-      atr1[i]+= (f-atr1[i])/20.0;
-      atr2[i]+= (f-atr2[i])/10.0;
+      // stroke(p0[i%p0.length],230);  
+      // line(
+      //   x, height/2.0+atr2[i]*500,
+      //   x, height/2.0+atr1[i]*500);
       
-      stroke(p0[i%p0.length],230);  
-      line(
-        x, height/2.0+atr2[i]*500,
-        x, height/2.0+atr1[i]*500);
-      
-      stroke(p0[i%p0.length],100);  
+      stroke(p0[i%p0.length],200);  
       point(x,height/2.0+f*500);   
       msg.add(f);
       i++;
       
     }
-    oscP5.send(msg, remote);
+    oscP5.send(msg);
     
     x++;
     x%=width;

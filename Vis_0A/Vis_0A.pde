@@ -33,15 +33,15 @@ int x = 0;
 float atr1[] = new float[14];
 float atr2[] = new float[14];
 
-ArrayList<float[]> data;
+ArrayList<float[]> data = new ArrayList< float[] >();
 
 void setup() {
   
-  size(1024,768);
+  size(720,800);
   
-  frameRate(25);
+  frameRate(30);
 
-  oscP5 = new OscP5(this,9997);
+  oscP5 =new OscP5(this,"239.0.0.1",7777);
   background(0);
 }
 
@@ -55,15 +55,12 @@ void draw() {
   }
 
       
-  if (line != null) {
-    
-    OscMessage msg = new OscMessage("/data");
+
+  while(data !=null && data.size()>0) {
+    float d[] = data.remove(0);
     int i=0;
-    
-    for(String s : split(line, " ")) { 
-      
-      float f = float(s);
-      
+    if(d == null) continue;
+    for(float f: d) { 
       atr1[i]+= (f-atr1[i])/20.0;
       atr2[i]+= (f-atr2[i])/10.0;
       
@@ -74,12 +71,8 @@ void draw() {
       
       stroke(p0[i%p0.length],100);  
       point(x,height/2.0+f*500);   
-      msg.add(f);
       i++;
-      
     }
-    oscP5.send(msg, remote);
-    
     x++;
     x%=width;
   }
@@ -95,5 +88,6 @@ void oscEvent(OscMessage msg) {
        d[i] = v;
        i++;
     }
+    data.add(d);
   }
 }

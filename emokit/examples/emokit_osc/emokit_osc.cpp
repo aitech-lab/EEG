@@ -11,8 +11,8 @@
 #include "oscpack/ip/UdpSocket.h"
 #include "emokit/emokit.h"
 
-#define ADDRESS "127.0.0.1"
-#define PORT 9997
+#define ADDRESS "239.0.0.1"
+#define PORT 7777
 
 #define OUTPUT_BUFFER_SIZE 4096
 

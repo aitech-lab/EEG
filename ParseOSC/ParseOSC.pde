@@ -23,10 +23,10 @@ void setup() {
   
   size(1030,410);
   cp5 = new ControlP5(this);
-  
+  frameRate(15);
   frameRate(25);
 
-  oscP5 = new OscP5(this,9997);
+  oscP5 = new OscP5(this,"239.0.0.1",7777);
   chart = cp5.addChart("data")
                .setPosition(10, 10)
                .setSize(750, 380)
